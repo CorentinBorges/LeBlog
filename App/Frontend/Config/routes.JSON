@@ -1,0 +1,16 @@
+{
+	"routes":
+	[
+		{
+			"url":"/blog/",
+			"module":"Home",
+			"action":"index"
+		},
+		{
+			"url":"/blog/([a-z]+)",
+			"module":"Home",
+			"action":"index",
+			"vars":"prenom"
+		}
+	]
+}
