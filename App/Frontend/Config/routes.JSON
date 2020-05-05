@@ -7,10 +7,10 @@
 			"action":"index"
 		},
 		{
-			"url":"/blog/([a-z]+)",
+			"url":"/blog/CV",
 			"module":"Home",
-			"action":"index",
-			"vars":"prenom"
+			"action":"CV"
 		}
 	]
+
 }

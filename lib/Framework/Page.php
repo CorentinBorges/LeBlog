@@ -26,7 +26,7 @@ class Page extends AppComponent
 		$this->contentFile=$contentFile;
 	}
 
-	public function addVars($key,$value)
+	public function addVar($key,$value)
 	{
 		if(!isset($this->vars[$key]) || $this->vars[$key]!==$value)
 		{

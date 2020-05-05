@@ -1,0 +1,24 @@
+{% extends 'App/Frontend/Templates/layout.twig'%}
+
+{% block jumbotron %}   
+  <header class="masthead" style="background-image: url('Web/img/CV-pic.jpg')"> 
+      <div class="overlay"></div>
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Curriculum Vitae</h1>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+  </header>
+
+{% endblock %}
+
+  {% block content %}
+    <div id="CV-container">
+      <object type="application/pdf" id='CV' data="Web/docs/CV.pdf" ></object>
+    </div>
+  {% endblock %}

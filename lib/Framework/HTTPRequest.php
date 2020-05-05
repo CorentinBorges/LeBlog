@@ -17,7 +17,7 @@ Class HTTPRequest extends AppComponent
 
 	public function postExist($var)
 	{
-		return isset($_GET[$var]);
+		return isset($_POST[$var]);
 	}
 
 	public function postData($var)

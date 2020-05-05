@@ -34,19 +34,23 @@ abstract class Application
 			}
 
 			$router->addRoute(new Route($route['url'],$route['module'],$route['action'],$vars));
+			
 		}	
 
 		try 
 			{
+
 				$finalRoute= $router->getRoute($this->HTTPRequest->getURL());
+
 			}
 
 		catch (\RuntimeException $e) 
 			{
 				if($e->getCode()== Router::NO_ROUTE)
 				{
+					
 					$this->HTTPResponse->redirect404();
-					echo 'coucou';
+
 				}
 				
 			}

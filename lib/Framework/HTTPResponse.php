@@ -2,6 +2,7 @@
 namespace Framework;
 
 use Framework\appComponent;
+use Framework\Mail;
 
 Class HTTPResponse extends appComponent
 {
@@ -25,9 +26,23 @@ Class HTTPResponse extends appComponent
 		$this->send();
 	}
 
+	public function sendMail(Mail $mail)
+	{
+
+		$jsonFile=file_get_contents(__DIR__.'/../../App/'.$this->app->name().'/Config/app.Json');
+		$json=json_decode($jsonFile,true);
+		$to=$json['mail'];
+		$obj=$mail->firstName().' '.$mail->name().' : '.$mail->obj();
+		$headers =	'From: '.$mail->mail() . "\r\n" .
+					'Reply-To: '.$mail->mail(). "\r\n" .
+				    'X-Mailer: PHP/' . phpversion();
+
+		mail($to,$obj,$mail->message(),$headers);
+	}
+
 	public function send()
 	{ 
-			 exit ($this->page->getGeneratedPage());
+		exit ($this->page->getGeneratedPage());
 	}
 
 }

@@ -31,7 +31,7 @@ abstract class BackController extends AppComponent
 		}
 		
 		$httpRequest=$this->app->httpRequest();
-		$this->$method($httpRequest,$this->app->httpResponse());
+		$this->$method($httpRequest,$this->app->HTTPResponse());
 	}
 
 	public function setAction($action)

@@ -92,6 +92,7 @@ img::-moz-selection {
   border-bottom: 1px solid #e9ecef;
   background-color: white;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
 }
 
 #mainNav .navbar-brand {
@@ -112,6 +113,18 @@ img::-moz-selection {
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.nav-devider
+{
+  width: 5px;
+  border-left:1px solid white;
+  height: 30px;
+}
+
+#nav-pic
+{
+  width: 60px;
 }
 
 @media only screen and (min-width: 992px) {
@@ -145,7 +158,7 @@ img::-moz-selection {
   #mainNav.is-fixed {
     /* when the user scrolls down, we hide the header right above the viewport */
     position: fixed;
-    top: -67px;
+    top: -80px;
     transition: transform 0.2s;
     border-bottom: 1px solid white;
     background-color: rgba(255, 255, 255, 0.9);
@@ -169,7 +182,8 @@ img::-moz-selection {
 }
 
 header.masthead {
-  margin-bottom: 50px;
+  height: 25rem;
+  margin-bottom:50px;
   background: no-repeat center center;
   background-color: #868e96;
   background-attachment: scroll;
@@ -190,7 +204,7 @@ header.masthead .overlay {
 header.masthead .page-heading,
 header.masthead .post-heading,
 header.masthead .site-heading {
-  padding: 200px 0 150px;
+  padding: 100px 0 150px;
   color: white;
 }
 
@@ -198,7 +212,7 @@ header.masthead .site-heading {
   header.masthead .page-heading,
   header.masthead .post-heading,
   header.masthead .site-heading {
-    padding: 200px 0;
+    padding: 140px 0;
   }
 }
 
@@ -412,5 +426,52 @@ footer .copyright {
 
 .error
 {
-  
+  margin-top: 20%;
+}
+
+/*==============Home====================*/
+
+
+  .CV-link
+  {
+    color: #4190df;
+    text-decoration: underline;
+  }
+
+  .CV-link:hover
+  {
+    color: #00657B;
+  }
+
+@media only screen and (min-width: 992px)
+{
+  .home-sides
+  {
+    margin-top: 10rem;
+  }
+}
+
+/*==========CV===========*/
+
+#CV
+{
+  height: 30rem;
+  width: 20rem;
+}
+
+@media only screen and (min-width: 768px)
+{
+  #CV
+  {
+    height: 32rem;
+    width: 25rem;
+  }
+}
+
+
+
+#CV-container
+{
+  display: flex;
+  justify-content: center;
 }
