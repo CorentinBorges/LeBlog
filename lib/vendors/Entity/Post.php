@@ -5,7 +5,7 @@ use Framework\Entity;
 
 Class Post extends Entity
 {
-	protected 	$auteur,
+	protected 	$author,
 				$title,
 				$chapo,
 				$content,
@@ -16,19 +16,22 @@ Class Post extends Entity
 	const INVALID_CHAPO=2;
 	const INVALID_CONTENT=3;
 
+	public function __construct(Array $datas)
+	{
+		parent::__construct($datas);
+		$this->setAuthor();
+	}
+
 	public function isValid()
 	{
 		return !empty($this->title) || !empty($this->chapo) || !empty($this->content);
 	}
 
-	public function setAuteur($auteur)
+	public function setAuthor()
 	{
-		if(!is_string($auteur))
-		{
-			throw new InvalidArgumentException("L'auteur doit être une chaîne de caractères valide");
-			
-		}
-		$this->auteur=$auteur;
+		$jsonFile=file_get_contents(__DIR__.'/../../../App/Frontend/Config/app.JSON');
+		$json=json_decode($jsonFile,true);
+		$this->auteur=$json['author'];
 	}
 
 	public function setTitle($title)
@@ -69,7 +72,7 @@ Class Post extends Entity
 	
 	public function setDateModif(\DateTime $dateModif)
 	{
-		$dateModif->format('j/m/Y');
+		$date=$dateModif->format('j/m/Y');
 		$this->dateModif=$date;
 	}
 

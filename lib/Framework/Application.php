@@ -39,9 +39,7 @@ abstract class Application
 
 		try 
 			{
-
 				$finalRoute= $router->getRoute($this->HTTPRequest->getURL());
-
 			}
 
 		catch (\RuntimeException $e) 
@@ -52,7 +50,6 @@ abstract class Application
 					$this->HTTPResponse->redirect404();
 
 				}
-				
 			}
 			$_GET=array_merge($_GET,$finalRoute->vars());
 			$ControllerClass='App\\'.$this->name.'\\Modules\\'.$finalRoute->module().'\\'.$finalRoute->module().'Controller';

@@ -12,7 +12,7 @@ Class HTTPRequest extends AppComponent
 
 	public function getData($var)
 	{
-		return isset($_GET['var']) ? $_GET[$var] : null;
+		return isset($_GET[$var]) ? $_GET[$var] : null;
 	}
 
 	public function postExist($var)

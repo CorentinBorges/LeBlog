@@ -81,6 +81,7 @@
 
         <div class="col-lg-6 pl-md-5 pl-sm-5 col-md-10 mx-auto">
           <h2 class="text-center">Me contacter</h2>
+
           <form name="sentMessage" id="contactForm" method='post' action="/blog/">
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
@@ -113,7 +114,7 @@
             <div class="control-group ">
               <div class="form-group floating-label-form-group controls">
                 <label>Message</label>
-                <textarea rows="4" class="form-control" name='message' placeholder="Message" id="message" required data-validation-required-message="Vous n'avez pas écrit de message"></textarea>
+                <textarea rows="4" class="form-control" maxlength="250" name='message' placeholder="Message" id="message" required data-validation-required-message="Vous n'avez pas écrit de message"></textarea>
                 <p class="help-block text-danger"></p>
               </div>
             </div>
@@ -123,6 +124,7 @@
               <button type="submit" name='submit' class="btn btn-primary" id="sendMessageButton">Envoyer</button>
             </div>
           </form>
+
         </div>
         <div class='container text-center mr-sm-2 mr-0 ml-3 ml-sm-0 d-block d-lg-none home-sides' >
           <a href="CV" class='CV-link '  >Curriruclum Vitae</a>

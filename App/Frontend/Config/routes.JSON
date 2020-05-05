@@ -10,6 +10,17 @@
 			"url":"/blog/CV",
 			"module":"Home",
 			"action":"CV"
+		},
+		{
+			"url":"/blog/posts",
+			"module":"Posts",
+			"action":"index"
+		},
+		{
+			"url":"/blog/post([0-9])+",
+			"module":"Posts",
+			"action":"onePost",
+			"vars":"id"
 		}
 	]
 

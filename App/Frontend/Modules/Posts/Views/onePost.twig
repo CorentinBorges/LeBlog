@@ -1,0 +1,61 @@
+{% extends 'App/Frontend/Templates/layout.twig'%}
+
+{% block jumbotron %}   
+
+  <header class="masthead" style="background-image: url('Web/img/news.jpg')"> 
+      <div class="overlay"></div>
+          <div class="container">
+                  <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>{{post.title}}</h1>
+                        <p>{{post.chapo}}</p>
+                        <p>Auteur: {{post.auteur}} <i>Ecrit le: {{post.dateCreation}}</i></p>
+                    </div>
+                </div>
+            </div>
+  </header>
+
+{% endblock %}
+
+  
+{% block content %}
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          {{post.content}}
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <div class="flex-column mx-auto text-center">
+    <form >
+       <label for='comment' id="comment-label" >Commentaire:<br/></label>
+       <textarea  maxlength="250" name="comment" id='comment'></textarea>
+       <div class="form-group col-5 col-md-12 mt-3 mx-auto" >
+           <button type="submit" name='submit' class="btn btn-primary" id="send">Envoyer</button>
+       </div>
+    </form>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <p class="mb-2">Commentaires:</p>
+    <div class="border border-dark container">
+      <p>Auteur <i>Date</i></p>
+      <p>de omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto </p>
+    </div>
+    <div class="border border-dark container">
+      <p>Auteur <i>Date</i></p>
+      <p>de omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto </p>
+    </div>
+
+  </div>
+
+  
+
+{% endblock %}

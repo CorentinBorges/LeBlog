@@ -463,15 +463,25 @@ footer .copyright {
 {
   #CV
   {
-    height: 32rem;
-    width: 25rem;
+    height: 50rem;
+    width: 30rem;
   }
 }
-
-
 
 #CV-container
 {
   display: flex;
   justify-content: center;
+}
+
+/*=============OnePost============*/
+
+#comment-label
+{
+  display: block;
+}
+
+.comment
+{
+  
 }
