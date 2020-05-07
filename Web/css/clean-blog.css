@@ -131,6 +131,7 @@ img::-moz-selection {
   #mainNav {
     border-bottom: 1px solid transparent;
     background: transparent;
+    background-color:  rgba(0,0,0,0.2);
   }
   #mainNav .navbar-brand {
     padding: 10px 20px;
@@ -182,7 +183,7 @@ img::-moz-selection {
 }
 
 header.masthead {
-  height: 25rem;
+  height: 20rem;
   margin-bottom:50px;
   background: no-repeat center center;
   background-color: #868e96;
@@ -212,9 +213,10 @@ header.masthead .site-heading {
   header.masthead .page-heading,
   header.masthead .post-heading,
   header.masthead .site-heading {
-    padding: 140px 0;
+    padding: 90px 0;
   }
 }
+
 
 header.masthead .page-heading,
 header.masthead .site-heading {
@@ -370,6 +372,11 @@ header.masthead .post-heading .meta a {
   margin: 15px 0;
 }
 
+.help-block
+{
+  font-style: italic;
+}
+
 .floating-label-form-group-with-value label {
   top: 0;
   opacity: 1;
@@ -397,6 +404,37 @@ footer .copyright {
   margin-bottom: 0;
   text-align: center;
 }
+
+.config-link
+{
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 768px)
+{
+  .plan
+  {
+    margin-top: -30px;
+  }
+
+  #arrow-link
+    {
+        position: fixed;
+        bottom: 3%;
+        right: 1%;
+        color: white;
+        font-size: 30px;
+        background-color: black;
+        padding: 5px;
+        border-radius: 5px;
+        opacity: 0.2;
+    }
+    #arrow-link:hover
+    {
+        opacity:0.5;
+    }
+}
+
 
 .btn {
   font-size: 14px;

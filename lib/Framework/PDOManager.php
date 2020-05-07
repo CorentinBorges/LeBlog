@@ -10,4 +10,5 @@ class PDOManager
 	{
 		$this->db=PDOFactory::getPDO();
 	}
+
 }

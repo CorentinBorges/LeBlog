@@ -13,7 +13,6 @@ abstract class Application
 	{
 		$this->HTTPRequest=new HTTPRequest($this);
 		$this->HTTPResponse= new HTTPResponse($this);
-		$this->managers=new Managers($this);
 		$this->name='';
 	}
 

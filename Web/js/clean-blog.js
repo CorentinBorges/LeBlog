@@ -38,4 +38,10 @@
       });
   }
 
-})(jQuery); // End of use strict
+})(jQuery); 
+
+
+
+$(".text-danger").click(function() {
+  $(".text-danger").removeClass('text-danger');
+});

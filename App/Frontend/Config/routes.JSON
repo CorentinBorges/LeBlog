@@ -21,7 +21,23 @@
 			"module":"Posts",
 			"action":"onePost",
 			"vars":"id"
+		},
+		{
+			"url":"/blog/404",
+			"module":"Errors",
+			"action":"404"
+		},
+		{
+			"url":"/blog/signIn",
+			"module":"Log",
+			"action":"signInView"
+		},
+		{
+			"url":"/blog/validSignIn",
+			"module":"Log",
+			"action":"validSignIn"
 		}
+
 	]
 
 }

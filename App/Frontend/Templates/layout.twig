@@ -25,10 +25,10 @@
 </head>
 
 <body>
-
+<a href="#top" id="arrow-link"><i class="fas d-none d-md-block fa-angle-double-up"></i></a> 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
+    <div class="container" id='top'>
       <img id='nav-pic' src='Web/img/profil.png' alt='Corentin borges'/>
       <a class="navbar-brand " href="/blog">Corentin Borges</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@
             <a class="nav-link" href="post.html">Connexion</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">s'enregistrer</a>
+            <a class="nav-link" href="signIn">s'enregistrer</a>
           </li>
         </ul>
       </div>
@@ -58,53 +58,79 @@
   <!-- Page Header -->
 {% if block("jumbotron") is defined %}
     {{ block ('jumbotron')}}
+{% else %}
+    <div class='mt-5 pt-5'></div>
 {% endif %}
 
 
 {{ block ('content')}}
-  <!-- Footer -->
+  <hr class="mt-5">
   <footer>
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <ul class="list-inline text-center">
-            <li class="list-inline-item">
-              <a href="mailto:cb.corentinborges@gmail.com" target='_blanck'>
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://www.linkedin.com/in/corentin-borges/" target='_blanck'>
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://github.com/CorentinBorges" target='_blanck'>
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-          </ul>
-          <p class="copyright text-muted">Copyright &copy; Corentin Borges</p>
-        </div>
+        <ul class="col-lg-4 plan d-none d-lg-block col-md-3 ">
+          <p>Plan du site:</p>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog">Acceuil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="posts">Posts</a>
+          </li>
+          
+            <a class="nav-link" href="posts"><i>Conditions générales d'utilisation</i></a>
+          
+        </ul>  
+            <div class="col-lg-4 col-12 mx-auto">
+              <ul class="list-inline text-center">
+                <li class="list-inline-item">
+                  <a href="mailto:cb.corentinborges@gmail.com" target='_blanck'>
+                    <span class="fa-stack fa-lg">
+                      <i class="fas fa-circle fa-stack-2x"></i>
+                      <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://www.linkedin.com/in/corentin-borges/" target='_blanck'>
+                    <span class="fa-stack fa-lg">
+                      <i class="fas fa-circle fa-stack-2x"></i>
+                      <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://github.com/CorentinBorges" target='_blanck'>
+                    <span class="fa-stack fa-lg">
+                      <i class="fas fa-circle fa-stack-2x"></i>
+                      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <p class="copyright text-muted">Copyright &copy; Corentin Borges</p>
+            </div>
+            <ul class="plan d-lg-none text-center mt-3 d-block col-lg-3 ">
+              <p>Plan du site:</p>
+              <li class="nav-item list-group-item">
+                <a class="nav-link" href="/blog">Acceuil</a>
+              </li>
+              <li class="nav-item list-group-item">
+                <a class="nav-link" href="posts">Posts</a>
+              </li>
+              <a class="nav-link" href="posts"><i>Conditions générales d'utilisation</i></a>
+            </ul>
+            <div class='col-lg-3 mx-auto text-center mt-5'>
+              <a href="" class='config-link'>Configurer le site</a>
+            </div>
+            
       </div>
     </div>
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="lib/vendors/layoutFrontend/jquery/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>
   <script src="lib/vendors/layoutFrontend/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="Web/js/clean-blog.min.js"></script>
+  <script src="Web/js/clean-blog.js"></script>
 
 </body>
 

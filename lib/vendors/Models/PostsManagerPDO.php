@@ -35,10 +35,13 @@ class PostsManagerPDO extends PDOManager
 		$req->bindValue(":id",(int)$id,\PDO::PARAM_INT);
 		$req->execute();
 		$post=$req->fetch(\PDO::FETCH_ASSOC);
-		$post['date_creation']=new \DateTime($post['date_creation']);
-		$post['date_modif']=new \DateTime($post['date_modif']);
-
-		$post=new Post($post);
+		if($post)
+		{
+			$post['date_creation']= new \DateTime($post['date_creation']);
+			$post['date_modif']= isset($post['date_modif']) ? new \DateTime($post['date_modif']) : null;
+			$post=new Post($post);
+		}
+		
 		return $post;
 	}
 }

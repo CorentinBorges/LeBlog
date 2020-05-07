@@ -5,11 +5,13 @@ namespace Framework;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
+
 abstract class BackController extends AppComponent
 {
 	protected 	$action,
 				$module,
 				$page,
+				$managers,
 				$twig,
 				$view;
 
@@ -17,6 +19,7 @@ abstract class BackController extends AppComponent
 	{
 		parent::__construct($app);
 		$this->page=new Page($this->app);
+		$this->managers=new Managers($this->app);
 		$this->setAction($action);
 		$this->setModule($module);
 		$this->setView($action);

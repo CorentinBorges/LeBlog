@@ -16,22 +16,19 @@ Class Post extends Entity
 	const INVALID_CHAPO=2;
 	const INVALID_CONTENT=3;
 
-	public function __construct(Array $datas)
-	{
-		parent::__construct($datas);
-		$this->setAuthor();
-	}
 
 	public function isValid()
 	{
 		return !empty($this->title) || !empty($this->chapo) || !empty($this->content);
 	}
 
-	public function setAuthor()
+	public function setAuthor($author)
 	{
-		$jsonFile=file_get_contents(__DIR__.'/../../../App/Frontend/Config/app.JSON');
-		$json=json_decode($jsonFile,true);
-		$this->auteur=$json['author'];
+		if(!is_string($author))
+		{
+			throw new \InvalidArgumentException("l'auteur doit être une chaîne de caractères valide");
+		}
+		$this->author=$author;
 	}
 
 	public function setTitle($title)

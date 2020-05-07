@@ -11,6 +11,7 @@ Class HTTPResponse extends appComponent
 	public function redirect($path)
 	{
 		header('Location: '.$path);
+		exit;
 	}
 
 	public function setPage(Page $page)
@@ -20,10 +21,8 @@ Class HTTPResponse extends appComponent
 	
 	public function redirect404()
 	{
-		$page=$this->setPage(new Page($this->app));
-		$this->page->setContent('Errors/404.twig');
-		header('HTTP/1.0 404 Not Found');
-		$this->send();
+		$this->redirect('/blog/404');
+
 	}
 
 	public function sendMail(Mail $mail)
