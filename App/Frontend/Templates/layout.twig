@@ -3,134 +3,160 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Corentin Borges">
 
-  <title>Corentin Borges</title>
+    <title>Corentin Borges</title>
 
 
-  <!-- Bootstrap core CSS -->
-  <link href="lib/vendors/layoutFrontend/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="lib/vendors/layoutFrontend/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom fonts for this template -->
-  <link href="lib/vendors/layoutFrontend/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Custom fonts for this template -->
+    <link href="lib/vendors/layoutFrontend/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-  <!-- Custom styles for this template -->
-  <link href="Web/css/clean-blog.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="Web/css/clean-blog.css" rel="stylesheet">
 
 </head>
 
 <body>
-<a href="#top" id="arrow-link"><i class="fas d-none d-md-block fa-angle-double-up"></i></a> 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container" id='top'>
-      <img id='nav-pic' src='Web/img/profil.png' alt='Corentin borges'/>
-      <a class="navbar-brand " href="/blog">Corentin Borges</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/blog">Acceuil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="posts">Posts</a>
-          </li>
-          <div class="nav-devider mt-1"></div>
-          <li class="nav-item">
-            <a class="nav-link" href="post.html">Connexion</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="signIn">s'enregistrer</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Page Header -->
-{% if block("jumbotron") is defined %}
-    {{ block ('jumbotron')}}
-{% else %}
-    <div class='mt-5 pt-5'></div>
-{% endif %}
-
-
-{{ block ('content')}}
-  <hr class="mt-5">
-  <footer>
-    <div class="container">
-      <div class="row">
-        <ul class="col-lg-4 plan d-none d-lg-block col-md-3 ">
-          <p>Plan du site:</p>
-          <li class="nav-item">
-            <a class="nav-link" href="/blog">Acceuil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="posts">Posts</a>
-          </li>
-          
-            <a class="nav-link" href="posts"><i>Conditions générales d'utilisation</i></a>
-          
-        </ul>  
-            <div class="col-lg-4 col-12 mx-auto">
-              <ul class="list-inline text-center">
-                <li class="list-inline-item">
-                  <a href="mailto:cb.corentinborges@gmail.com" target='_blanck'>
-                    <span class="fa-stack fa-lg">
-                      <i class="fas fa-circle fa-stack-2x"></i>
-                      <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                    </span>
-                  </a>
+    <a href="#" id="arrow-link"><i class="fas d-none d-md-block fa-angle-double-up"></i></a> 
+<!--Page Nav-->
+{% if connected %}
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <img id='nav-pic' src='Web/img/profil.png' alt='Corentin borges'/>
+            <a class="navbar-brand " href="/blog">Corentin Borges</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              Menu
+                <i class="fas fa-bars"></i>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog">Acceuil</a>
                 </li>
-                <li class="list-inline-item">
-                  <a href="https://www.linkedin.com/in/corentin-borges/" target='_blanck'>
-                    <span class="fa-stack fa-lg">
-                      <i class="fas fa-circle fa-stack-2x"></i>
-                      <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
-                    </span>
-                  </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="posts">Posts</a>
                 </li>
-                <li class="list-inline-item">
-                  <a href="https://github.com/CorentinBorges" target='_blanck'>
-                    <span class="fa-stack fa-lg">
-                      <i class="fas fa-circle fa-stack-2x"></i>
-                      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                    </span>
-                  </a>
+                <div class="nav-devider-connect d-none d-lg-block mt-1"></div>
+                <li class="nav-item ">
+                    <span id='pseudo-nav' class='d-none d-lg-block ml-3'>{{pseudo}}</span>
+                    <a class="nav-link" id='disconnect' href="disconnect">Déconnexion</a>
                 </li>
-              </ul>
-              <p class="copyright text-muted">Copyright &copy; Corentin Borges</p>
-            </div>
-            <ul class="plan d-lg-none text-center mt-3 d-block col-lg-3 ">
-              <p>Plan du site:</p>
-              <li class="nav-item list-group-item">
-                <a class="nav-link" href="/blog">Acceuil</a>
-              </li>
-              <li class="nav-item list-group-item">
-                <a class="nav-link" href="posts">Posts</a>
-              </li>
-              <a class="nav-link" href="posts"><i>Conditions générales d'utilisation</i></a>
             </ul>
-            <div class='col-lg-3 mx-auto text-center mt-5'>
-              <a href="" class='config-link'>Configurer le site</a>
-            </div>
-            
-      </div>
+        </div>
     </div>
-  </footer>
+    </nav>
+{% else %}
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <img id='nav-pic' src='Web/img/profil.png' alt='Corentin borges'/>
+            <a class="navbar-brand " href="/blog">Corentin Borges</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              Menu
+                <i class="fas fa-bars"></i>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog">Acceuil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="posts">Posts</a>
+                </li>
+                <div class="nav-devider mt-1"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="login">Connexion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signIn">s'enregistrer</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </nav>
+{% endif %}
+  <!-- Page Header -->
+    {% if block("jumbotron") is defined %}
+        {{ block ('jumbotron')}}
+    {% else %}
+        <div class='mt-5 pt-5'></div>
+    {% endif %}
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>
-  <script src="lib/vendors/layoutFrontend/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="Web/js/clean-blog.js"></script>
+
+    {{ block ('content')}}
+
+    <hr class="mt-5">
+    <footer>
+        <div class="container">
+            <div class="row">
+                <ul class="col-lg-4 plan d-none d-lg-block col-md-3 ">
+                    <p>Plan du site:</p>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog">Acceuil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="posts">Posts</a>
+                    </li>
+                    <a class="nav-link" href="posts"><i>Conditions générales d'utilisation</i></a>
+                </ul>  
+                <div class="col-lg-4 col-12 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="mailto:cb.corentinborges@gmail.com" target='_blanck'>
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.linkedin.com/in/corentin-borges/" target='_blanck'>
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://github.com/CorentinBorges" target='_blanck'>
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Corentin Borges</p>
+                </div>
+                <ul class="plan d-lg-none text-center mt-3 d-block col-lg-3 ">
+                    <p>Plan du site:</p>
+                    <li class="nav-item list-group-item">
+                        <a class="nav-link" href="/blog">Acceuil</a>
+                    </li>
+                    <li class="nav-item list-group-item">
+                        <a class="nav-link" href="posts">Posts</a>
+                    </li>
+                    <a class="nav-link" href="posts"><i>Conditions générales d'utilisation</i></a>
+                </ul>
+                <div class='col-lg-3 mx-auto text-center mt-5'>
+                    <a href="" class='config-link'>Configurer le site</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>
+    <script src="lib/vendors/layoutFrontend/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="Web/js/clean-blog.js"></script>
+}
 
 </body>
 

@@ -41,7 +41,14 @@
 })(jQuery); 
 
 
-
-$(".text-danger").click(function() {
-  $(".text-danger").removeClass('text-danger');
+$(".confirm-cross").click(function(event) {
+    $('.confirm-comment-bg').hide()
 });
+
+x=0;
+while( x<6){
+    $("."+x+" .text-danger").click(function() {
+      $(this).removeClass('text-danger');
+    });
+    x++;
+}

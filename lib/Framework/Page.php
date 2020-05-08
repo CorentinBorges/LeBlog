@@ -21,9 +21,13 @@ class Page extends AppComponent
 	{
 		if(!file_exists(__DIR__.'/../../'.$contentFile))
 		{
-			throw new \InvalidArgumentException("la vue demandée n'existe pas");
+			$this->contentFile=null;
 		}
-		$this->contentFile=$contentFile;
+		else
+		{
+			$this->contentFile=$contentFile;	
+		}
+		
 	}
 
 	public function addVar($key,$value)

@@ -8,14 +8,12 @@ use Framework\Entity;
 
 class User extends Entity
 {
-	protected 	$id,
-				$name,
+	protected 	$name,
 				$firstName,
 				$pseudo,
 				$mail,
 				$password,
-				$valid,
-				$errors=[];
+				$valid;
 
 	const INVALID_NAME=1;
 	const INVALID_FIRST_NAME=2;
@@ -33,9 +31,30 @@ class User extends Entity
 		return empty($this->errors);
 	}
 
+	public function isValid()
+	{
+		return $this->valid;
+	}
+
+	public function connect()
+	{
+		$_SESSION['auth']=true;
+		$_SESSION['id']=$this->id;
+		$_SESSION['pseudo']=$this->pseudo();
+	}
+
+	public function disconnect()
+	{
+		session_destroy();
+		unset($_COOKIE['mail']);
+		unset($_COOKIE['pass']);
+        setcookie('mail', '', time() - 4200, null, null, false, true);
+        setcookie('pass', '', time() - 4200, null, null, false, true);
+	}
+
 	public function setId($id)
 	{
-		$id=int($id);
+		$id=(int)$id;
 		$this->id=$id;
 		
 	}
@@ -65,7 +84,7 @@ class User extends Entity
 	public function setPseudo($pseudo)
 	{
 		if(!is_string($pseudo))
-		{
+		{	
 			$this->errors[]=self::INVALID_PSEUDO;
 		}
 		$this->pseudo=$pseudo;
@@ -87,7 +106,7 @@ class User extends Entity
 		{
 			$this->errors[]=self::INVALID_PASSWORD;
 		}
-		$password=password_hash($password, PASSWORD_BCRYPT, array('cost'=>12));
+		
 		$this->password=$password;
 
 	}
@@ -121,11 +140,6 @@ class User extends Entity
 	public function password()
 	{
 		return $this->password;
-	}
-
-	public function valid()
-	{
-		return $this->valid;
 	}
 
 	public function errors()

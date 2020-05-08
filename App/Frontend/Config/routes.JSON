@@ -30,12 +30,22 @@
 		{
 			"url":"/blog/signIn",
 			"module":"Log",
-			"action":"signInView"
+			"action":"signIn"
 		},
 		{
 			"url":"/blog/validSignIn",
 			"module":"Log",
 			"action":"validSignIn"
+		},
+		{
+			"url":"/blog/login",
+			"module":"Log",
+			"action":"login"
+		},
+		{
+			"url":"/blog/disconnect",
+			"module":"Log",
+			"action":"disconnect"
 		}
 
 	]

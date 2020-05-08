@@ -19,43 +19,59 @@
 
   
 {% block content %}
-  <article>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          {{post.content}}
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    {{post.content}}
+                </div>
+            </div>
         </div>
-      </div>
+    </article>
+
+  
+    {% if connected is defined %}
+        <hr>
+        <div class="flex-column mx-auto text-center">
+            <form method='post' action='{{'post' ~ post.id}}'>
+                <label for='comment' id="comment-label" >Commentaire:<br/></label>
+                <textarea  maxlength="250" name="comment" id='comment' required></textarea>
+                <div class="form-group col-5 col-md-12 mt-3 mx-auto" >
+                    <button type="submit" name='submitComment' class="btn btn-primary" id="send">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    {% endif %}
+
+    {% if commentSent is defined %}
+        <div class="modal confirm-comment-bg fade show pt-5  " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false" style="display: block; padding-right: 19px;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content confirm-comment">
+                   
+                        <button type="button" class="close text-right mr-3" id='confirm-cross-btn' data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class='confirm-cross w-100'>&times;</span>
+                        </button>
+                    
+                    <div class="modal-body ">
+                        <p>Votre commentaire à été envoyé, il est en attente de validation</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if comments is defined %}
+    <hr>  
+    <div class="container">
+        <p class="mb-2">Commentaires:</p>
+        {%  for comment in comments %}
+            <div class="border border-dark container">
+                <p>{{comment.author}} <i>{{comment.date}}</i> </p>
+                <p>{{comment.content}}</p>
+            </div>
+        {% endfor %}
     </div>
-  </article>
-
-  <hr>
-
-  <div class="flex-column mx-auto text-center">
-    <form >
-       <label for='comment' id="comment-label" >Commentaire:<br/></label>
-       <textarea  maxlength="250" name="comment" id='comment'></textarea>
-       <div class="form-group col-5 col-md-12 mt-3 mx-auto" >
-           <button type="submit" name='submit' class="btn btn-primary" id="send">Envoyer</button>
-       </div>
-    </form>
-  </div>
-
-  <hr>
-
-  <div class="container">
-    <p class="mb-2">Commentaires:</p>
-    <div class="border border-dark container">
-      <p>Auteur <i>Date</i></p>
-      <p>de omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto </p>
-    </div>
-    <div class="border border-dark container">
-      <p>Auteur <i>Date</i></p>
-      <p>de omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto </p>
-    </div>
-
-  </div>
-
+    {% endif %}
   
 
 {% endblock %}

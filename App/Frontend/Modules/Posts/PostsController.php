@@ -5,6 +5,7 @@ use Framework\Application;
 use Framework\BackController;
 use Framework\HTTPRequest;
 use Framework\HTTPResponse;
+use Entity\Comment;
 
 class PostsController extends BackController
 {
@@ -25,6 +26,36 @@ class PostsController extends BackController
 		{
 			$response->redirect404();
 		}
+
+
+		$commentManager=$this->managers->getManagerOf('comments','PDO');
+
+		if($commentManager->commentExist($post->id()))
+		{
+			$comments=$commentManager->getComments($post->id());
+			$this->page->addVar('comments',$comments);	
+		}
+		if($request->postExist('submitComment'))
+		{
+			
+			$comment=new Comment([	'userId'=>$_SESSION['id'],
+									'postId'=>$post->id(),
+									'content'=>$request->postData('comment')]);
+			if(!$comment->validForm())
+			{
+				if(in_array(Comment::INVALID_COMMENT,$comment->errors()))
+				{	
+					$this->page->addVar('error','Le commentaire ne doit pas dépasser 250 caractères');
+				}
+			}
+			else
+			{
+				$commentManager->addComment($comment);
+				$this->page->addVar('commentSent','commentSent');
+			}
+
+		}
+
 		$this->page->addVar('post',$post);
 		$response->send();
 	}

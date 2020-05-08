@@ -27,7 +27,7 @@ Class HTTPRequest extends AppComponent
 
 	public function cookieExist($cookie)
 	{
-		return isset($_COOKIE[$var]) ? $_COOKIE[$var] : null;
+		return isset($_COOKIE[$cookie]) ? $_COOKIE[$cookie] : null;
 	}
 
 	public function getMethod()

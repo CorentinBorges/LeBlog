@@ -2,6 +2,7 @@
 
 namespace Framework;
 
+use Entity\User;
 abstract class Application
 {
 	protected 	$HTTPRequest,
@@ -63,8 +64,7 @@ abstract class Application
 		}
 		$this->name=$name;
 	}
-
-
+	
 	public function managers()
 	{
 		return $this->managers;

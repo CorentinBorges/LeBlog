@@ -5,9 +5,9 @@ namespace Framework;
 class Entity
 {
 	protected 	$id,
-				$erreurs=[];
+				$errors=[];
 
-	public function __construct(Array $datas)
+	public function __construct(Array $datas=[])
 	{
 		$this->hydrate($datas);
 	}
@@ -47,5 +47,10 @@ class Entity
 	public function id()
 	{
 		return $this->id;
+	}
+
+	public function errors()
+	{
+		return $this->errors;
 	}
 }

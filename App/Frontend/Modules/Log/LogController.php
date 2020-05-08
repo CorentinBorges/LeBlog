@@ -8,7 +8,7 @@ use Entity\User;
 
 class LogController extends BackController
 {
-	public function executeSignInView(HTTPRequest $request, HTTPResponse $response)
+	public function executeSignIn(HTTPRequest $request, HTTPResponse $response)
 	{
 		if($request->postExist('submitLog'))
 		{
@@ -38,7 +38,6 @@ class LogController extends BackController
 			if(!$request->postExist('conditions'))
 			{
 				$errors[]="Vous ne pouvez pas vous inscrire sans accepter les conditions d'utilisation";
-				$this->page->addVar('invalidPseudo',$red);
 			}
 
 			if($logManager->exist('mail',$request->postData('mail')))
@@ -99,8 +98,67 @@ class LogController extends BackController
 
 		$response->send();
 	}
+
 	public function executeValidSignIn(HTTPRequest $request, HTTPResponse $response)
 	{
 		$response->send();
+	}
+
+	public function executeLogin(HTTPRequest $request, HTTPResponse $response)
+	{
+		if($request->postExist('submitConnect'))
+		{
+			$mail=$request->postData('mail');
+			$pass=$request->postData('pass');
+			$this->page->addVar('pass',$pass);
+			$this->page->addVar('mail',$mail);
+			if($request->postExist('cookie'))
+			{
+				$this->page->addVar('checked','checked');
+			}
+
+			$logManager=$this->managers->getManagerOf('logs','PDO');
+			
+
+			if($logManager->exist('mail',$mail) && password_verify($pass, $logManager->getPass($mail)))
+			{
+				$this->app->setUser($logManager->getOne($mail));
+				if(!$this->app->user()->isValid())
+				{
+					$this->page->addVar('error','Votre inscription est en cours de validation');
+				}
+				else
+				{
+					if($request->postExist('cookie'))
+					{
+						setcookie('mail',$mail, time()+365*24*3600, null, null, false, true);
+						setcookie('pass',$pass, time()+365*24*3600, null, null, false, true);
+					}
+					$this->executeConnect($request,$response);
+					$response->redirect('/blog');
+				}
+			}
+			else
+			{
+				$this->page->addVar('error','Le mot de passe ou le mail sont incorrecte');
+			}
+		}
+
+		$response->send();
+	}
+	public function executeConnect(HTTPRequest $request, HTTPResponse $response)
+	{
+		if($request->cookieExist('mail') && $request->cookieExist('pass'))
+		{
+			$logManager=$this->managers->getManagerOf('logs','PDO');
+			$this->app->setUser($logManager->getOne($_COOKIE['mail']));
+		}
+		$this->app->user()->connect();
+	}
+
+	public function executeDisconnect(HTTPRequest $request, HTTPResponse $response)
+	{
+		$this->app->user()->disconnect();
+		$response->redirect('/blog');
 	}
 }

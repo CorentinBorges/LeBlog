@@ -18,124 +18,116 @@
 {% endblock %}
 
 {% block content %}
-{% if confirm %}
-  <div class="alert alert-success alert-dismissible fade show container col-10 col-lg-5 text-center" role="alert">
-    <strong>Votre mail à bien été envoyé</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-{% endif %}
+    {% if confirm %}
+        <div class="alert alert-success alert-dismissible fade show container col-10 col-lg-5 text-center" role="alert">
+            <strong>Votre mail à bien été envoyé</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
 
-{% if  errors %}
-    <div class="alert alert-danger alert-dismissible fade show container col-10 col-lg-5 text-left" role="alert">
-        <p><strong>Erreurs:</strong></p>
-        {% for error in errors %}
-            <ul>
-                <li> {{error}} </li>
-            </ul>
-        {% endfor %}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-   </div>    
-{% endif %}
-    <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-
-        <div class='container text-center d-lg-block d-none col-lg-4 col-xl-3 home-sides' >
-          <a href="CV"  class='CV-link'>Curriruclum Vitae</a>
-          <div class="container ml-3">
-            <div class="row mt-4">
-                <ul class="list-inline text-center">
-                  <li class="list-inline-item">
-                    <a href="mailto:cb.corentinborges@gmail.com" target='_blanck'>
-                      <span class="fa-stack fa-lg">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="https://www.linkedin.com/in/corentin-borges/" target='_blanck'>
-                      <span class="fa-stack fa-lg">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="https://github.com/CorentinBorges" target='_blanck'>
-                      <span class="fa-stack fa-lg">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </li>
+    {% if  errors %}
+        <div class="alert alert-danger alert-dismissible fade show container col-10 col-lg-5 text-left" role="alert">
+            <p><strong>Erreurs:</strong></p>
+            {% for error in errors %}
+                <ul>
+                    <li> {{error}} </li>
                 </ul>
+            {% endfor %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+       </div>    
+    {% endif %}
+        <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class='container text-center d-lg-block d-none col-lg-4 col-xl-3 home-sides' >
+                <a href="CV"  class='CV-link'>Curriruclum Vitae</a>
+                <div class="container ml-3">
+                    <div class="row mt-4">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="mailto:cb.corentinborges@gmail.com" target='_blanck'>
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                                </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/corentin-borges/" target='_blanck'>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/CorentinBorges" target='_blanck'>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
+            <div class="col-lg-6 pl-md-5 pl-sm-5 col-md-10 mx-auto">
+                <h2 class="text-center">Me contacter</h2>
 
-        <div class="col-lg-6 pl-md-5 pl-sm-5 col-md-10 mx-auto">
-          <h2 class="text-center">Me contacter</h2>
-
-          <form name="sentMessage" id="contactForm" method='post' action="/blog/">
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Nom</label>
-                <input type="text" class="form-control {{invalidName}}" {% if name %} value='{{name}}' {% endif %} name='name' placeholder="Nom" id="name" required data-validation-required-message="veuillez entrer un nom"> 
-                <p class="help-block text-danger"></p>
-              </div>
+                <form name="sentMessage" id="contactForm" method='post' action="/blog/">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Nom</label>
+                            <input type="text" class="form-control 1 {{invalidName}}" {% if name %} value='{{name}}' {% endif %} name='name' placeholder="Nom" id="name" required data-validation-required-message="veuillez entrer un nom"> 
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group ">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Prénom</label>
+                            <input type="text" class="form-control 2 {{invalidFirstName}}" name='firstName' {% if firstName %} value='{{firstName}}' {% endif %} placeholder="Prénom" id="first-name" required data-validation-required-message="Veuillez indiquer un prénom">
+                            <p class="help-block text-danger"></p>  
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>objet</label>
+                            <input type="text" class="form-control 3 {{invalidObj}}" name='obj' {% if obj %} value='{{obj}}' {% endif %} placeholder="Objet" id="obj" required data-validation-required-message="Veuillez indiquer un objet">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Mail</label>
+                            <input type="email" class="form-control 4 {{invalidMail}}" {% if mail %} value='{{mail}}' {% endif %} name='mail' placeholder="Mail" id="email" required data-validation-required-message="Veuillez indiquer votre adresse de messagerie">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group ">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Message</label>
+                            <textarea rows="4" class="form-control 5 {{invalidMessage}}" maxlength="250" name='message' {% if name %} value='{{message}}' {% endif %} placeholder="Message" id="message" required data-validation-required-message="Vous n'avez pas écrit de message"></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="form-group col-5 col-md-12 mx-auto" >
+                        <button type="submit" name='submit' class="btn btn-primary" id="sendMessageButton">Envoyer</button>
+                    </div>
+                </form>
             </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                  <label>Prénom</label>
-                  <input type="text" class="form-control {{invalidFirstName}}" name='firstName' {% if firstName %} value='{{firstName}}' {% endif %} placeholder="Prénom" id="first-name" required data-validation-required-message="Veuillez indiquer un prénom">
-                  <p class="help-block text-danger"></p>  
-              </div>
+            <div class='container text-center mr-sm-2 mr-0 ml-3 ml-sm-0 d-block d-lg-none home-sides' >
+                <a href="CV" class='CV-link '  >Curriruclum Vitae</a>
             </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>objet</label>
-                <input type="text" class="form-control {{invalidObj}}" name='obj' {% if obj %} value='{{obj}}' {% endif %} placeholder="Objet" id="obj" required data-validation-required-message="Veuillez indiquer un objet">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Mail</label>
-                <input type="email" class="form-control {{invalidMail}}" {% if mail %} value='{{mail}}' {% endif %} name='mail' placeholder="Mail" id="email" required data-validation-required-message="Veuillez indiquer votre adresse de messagerie">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="control-group ">
-              <div class="form-group floating-label-form-group controls">
-                <label>Message</label>
-                <textarea rows="4" class="form-control {{invalidMessage}}" maxlength="250" name='message' {% if name %} value='{{message}}' {% endif %} placeholder="Message" id="message" required data-validation-required-message="Vous n'avez pas écrit de message"></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <br>
-            <div id="success"></div>
-            <div class="form-group col-5 col-md-12 mx-auto" >
-              <button type="submit" name='submit' class="btn btn-primary" id="sendMessageButton">Envoyer</button>
-            </div>
-          </form>
-
+            <div class='col-lg-3'></div>
         </div>
-        <div class='container text-center mr-sm-2 mr-0 ml-3 ml-sm-0 d-block d-lg-none home-sides' >
-          <a href="CV" class='CV-link '  >Curriruclum Vitae</a>
-        </div>
-        <div class='col-lg-3'></div>
-      </div>
     </div>
    
-
-    
-
-
-    
 
 {% endblock %}

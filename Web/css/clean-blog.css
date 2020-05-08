@@ -122,10 +122,21 @@ img::-moz-selection {
   height: 30px;
 }
 
+.nav-devider-connect
+{
+  width: 5px;
+  border-left:1px solid white;
+  height: 60px;
+}
+
 #nav-pic
 {
   width: 60px;
 }
+
+ #disconnect{
+    color: #ef624e;
+  }
 
 @media only screen and (min-width: 992px) {
   #mainNav {
@@ -170,16 +181,22 @@ img::-moz-selection {
   #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
     color: #0085A1;
   }
-  #mainNav.is-fixed .navbar-nav > li.nav-item > a {
+  #mainNav.is-fixed .navbar-nav > li.nav-item > a, #mainNav.is-fixed .navbar-nav > li.nav-item #pseudo-nav{
     color: #212529;
   }
+  
   #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
     color: #0085A1;
   }
   #mainNav.is-visible {
     /* if the user changes the scrolling direction, we show the header */
-    transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 90%, 0);
   }
+}
+
+#pseudo-nav
+{
+  color: white;
 }
 
 header.masthead {
@@ -464,7 +481,7 @@ footer .copyright {
 
 .error
 {
-  margin-top: 20%;
+  margin-bottom: 20%;
 }
 
 /*==============Home====================*/
@@ -519,7 +536,22 @@ footer .copyright {
   display: block;
 }
 
-.comment
+.confirm-comment
 {
+  background-color: #d4edda;
   
+}
+
+.confirm-comment-bg
+{
+  background-color: rgba(0,0,0,0.2);
+}
+
+
+
+.confirm-cross
+{
+
+  color: red;
+  z-index: 150;
 }

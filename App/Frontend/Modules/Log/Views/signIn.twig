@@ -1,21 +1,6 @@
 {% extends 'App/Frontend/Templates/layout.twig'%}
 
-{% block jumbotron %}   
-  <header class="masthead" style="background-image: url('Web/img/signIn.jpg')"> 
-      <div class="overlay"></div>
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="site-heading">
-                        <h1>Inscricption</h1>
-                      
-                    </div>
-                </div>
-            </div>
-        </div>
-  </header>
 
-{% endblock %}
 
 
 
@@ -31,57 +16,57 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-   </div>    
+    </div>    
 {% endif %}
 <div class="col-12  pl-md-5 pl-sm-2 col-sm-6 mx-auto">
-    <h2 class="text-center">Formulaire</h2>
+    <h2 class="text-center">Inscription</h2>
 
     <form name="sentMessage" id="contactForm" method='post' action="signIn">
         <div class="control-group">
             <div class="form-group floating-label-form-group controls">
                 <label>Nom</label>
-                <input type="text" class="form-control {{invalidName}}" name='name' {% if name %} value='{{name}}' {% endif %} placeholder="Nom" id="name" required data-validation-required-message="veuillez entrer un nom">
+                <input type="text" class="form-control 1 {{invalidName}}" name='name' {% if name %} value='{{name}}' {% endif %} placeholder="Nom" id="name" required data-validation-required-message="veuillez entrer un nom">
                 <p class="help-block text-danger"></p>
                 </div>
             </div>
         <div class="control-group">
             <div class="form-group floating-label-form-group controls">
                 <label>Prénom</label>
-                <input type="text" class="form-control {{invalidFirstName}}" name='firstName' {% if firstName %} value='{{firstName}}' {% endif %} placeholder="Prénom" id="firstName" required data-validation-required-message="Veuillez indiquer un prénom">
+                <input type="text" class="form-control 2 {{invalidFirstName}}" name='firstName' {% if firstName %} value='{{firstName}}' {% endif %} placeholder="Prénom" id="firstName" required data-validation-required-message="Veuillez indiquer un prénom">
                 <p class="help-block text-danger"></p>
             </div>
         </div>
         <div class="control-group">
             <div class="form-group floating-label-form-group controls">
                 <label>Nom d'utilisateur</label>
-                <input type="text" class="form-control {{invalidPseudo}}" {% if pseudo %} value='{{pseudo}}' {% endif %} name='pseudo' placeholder="Nom d'utilisateur" id="pseudo" required data-validation-required-message="Veuillez indiquer un bom d'utilisateur">
+                <input type="text" class="form-control 3 {{invalidPseudo}}" {% if pseudo %} value='{{pseudo}}' {% endif %} name='pseudo' placeholder="Nom d'utilisateur" id="pseudo" required data-validation-required-message="Veuillez indiquer un bom d'utilisateur">
                 <p class="help-block text-danger"></p>
             </div>
         </div>
         <div class="control-group">
             <div class="form-group floating-label-form-group controls">
                 <label>Mail</label>
-                <input type="email" class="form-control {{invalidMail}}" {% if mail %} value='{{mail}}' {% endif %} name='mail' placeholder="Mail" id="email" required data-validation-required-message="Veuillez indiquer votre adresse de messagerie">
+                <input type="email" class="form-control 4 {{invalidMail}}" {% if mail %} value='{{mail}}' {% endif %} name='mail' placeholder="Mail" id="email" required data-validation-required-message="Veuillez indiquer votre adresse de messagerie">
                 <p class="help-block text-danger"></p>
             </div>
       </div>
       <div class="control-group">
             <div class="form-group floating-label-form-group controls">
                 <label>Mot de passe</label>
-                <input type="password" class="form-control {{invalidPass}}" {% if pass %} value='{{pass}}' {% endif %} name='pass' placeholder="Mot de passe" id="pass" required data-validation-required-message="Veuillez indiquer votre mot de passe">
+                <input type="password" class="form-control 5 {{invalidPass}}" {% if pass %} value='{{pass}}' {% endif %} name='pass' placeholder="Mot de passe" id="pass" required data-validation-required-message="Veuillez indiquer votre mot de passe">
             </div>
             <small class="help-block text-secondary">Le mot de passe doit comporter au moins 8 caractères, au moins une majuscule, une minuscule, un signe de ponctuation et un chiffre. </small>
       </div>
       <div class="control-group">
             <div class="form-group floating-label-form-group controls">
                 <label>Confirmation du mot de passe</label>
-                <input type="password" class="form-control {{invalidConfirm}}" {% if confirmPass %} value='{{confirmPass}}' {% endif %} name='confirmPass' placeholder="Confirmation mot de passe" id="confirmPass" required data-validation-required-message="Veuillez confirmer le mot de passe">
+                <input type="password" class="form-control 5 {{invalidConfirm}}" {% if confirmPass %} value='{{confirmPass}}' {% endif %} name='confirmPass' placeholder="Confirmation mot de passe" id="confirmPass" required data-validation-required-message="Veuillez confirmer le mot de passe">
                 <p class="help-block text-danger"></p>
             </div>
       </div>
       <div class="form-check mt-4">
-            <input type="checkbox" class="form-check-input mt-2"  name='conditions'  id="conditions" >
-            <label for='conditions'  class="form-check-label">J'accepte les conditions générales d'utilisation</label>
+            <input type="checkbox" class="form-check-input "  name='conditions'  id="conditions" >
+            <label for='conditions'  class="form-check-label ml-2">J'accepte les conditions générales d'utilisation</label>
             <p class="help-block text-danger"></p>
       </div>
       <br>

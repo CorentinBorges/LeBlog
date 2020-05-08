@@ -98,9 +98,9 @@ Class Post extends Entity
 		return $this->dateModif;
 	}
 
-	public function auteur()
+	public function author()
 	{
-		return $this->auteur;
+		return $this->author;
 	}
 
 }
