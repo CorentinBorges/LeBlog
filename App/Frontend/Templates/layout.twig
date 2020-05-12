@@ -92,6 +92,9 @@
 
     {{ block ('content')}}
 
+    <div id="CGU-container" class='CGU' style="display: none">
+        <object type="application/pdf" id='CV' data="Web/docs/CGU.pdf" ></object>
+    </div>
     <hr class="mt-5">
     <footer>
         <div class="container">
@@ -104,7 +107,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="posts">Posts</a>
                     </li>
-                    <a class="nav-link" href="posts"><i>Conditions générales d'utilisation</i></a>
+                    <button class="nav-link CGU-btn">Conditions générales d'utilisation</button>
                 </ul>  
                 <div class="col-lg-4 col-12 mx-auto">
                     <ul class="list-inline text-center">
@@ -143,10 +146,10 @@
                     <li class="nav-item list-group-item">
                         <a class="nav-link" href="posts">Posts</a>
                     </li>
-                    <a class="nav-link" href="posts"><i>Conditions générales d'utilisation</i></a>
+                    <button class="nav-link CGU-btn">Conditions générales d'utilisation </button>
                 </ul>
                 <div class='col-lg-3 mx-auto text-center mt-5'>
-                    <a href="" class='config-link'>Configurer le site</a>
+                    <a href="admin" class='config-link'>Configurer le site</a>
                 </div>
             </div>
         </div>

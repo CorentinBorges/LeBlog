@@ -21,6 +21,9 @@
 <div class="col-12  pl-md-5 pl-sm-2 col-sm-6 mx-auto">
     <h2 class="text-center">Inscription</h2>
 
+    <div id="CGU-container" class='CGU' style="display: none">
+        <object type="application/pdf" id='CV' data="Web/docs/CGU.pdf" ></object>
+    </div>
     <form name="sentMessage" id="contactForm" method='post' action="signIn">
         <div class="control-group">
             <div class="form-group floating-label-form-group controls">
@@ -65,8 +68,8 @@
             </div>
       </div>
       <div class="form-check mt-4">
-            <input type="checkbox" class="form-check-input "  name='conditions'  id="conditions" >
-            <label for='conditions'  class="form-check-label ml-2">J'accepte les conditions générales d'utilisation</label>
+            <input type="checkbox" class="form-check-input mt-2 "  name='conditions'  id="conditions" >
+            <label for='conditions'  class="form-check-label  ml-2"> J'accepte les  <button class=" CGU-btn ">conditions générales d'utilisation</button></label>
             <p class="help-block text-danger"></p>
       </div>
       <br>

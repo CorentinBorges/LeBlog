@@ -41,7 +41,7 @@
 })(jQuery); 
 
 
-$(".confirm-cross").click(function(event) {
+$("body").click(function(event) {
     $('.confirm-comment-bg').hide()
 });
 
@@ -52,3 +52,12 @@ while( x<6){
     });
     x++;
 }
+
+$('.CGU').click(function(event) {
+    $('.CGU').hide();
+});
+
+$('.CGU-btn').click(function(event) {
+    $('.CGU').show();  
+});
+

@@ -529,6 +529,34 @@ footer .copyright {
   justify-content: center;
 }
 
+/*==============CGU============*/
+.CGU
+{
+  display: flex;
+  position: fixed;
+  right: 0;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  margin: auto;
+  z-index: 10;
+  background: rgba(0,0,0,0.2);
+}
+
+
+.CGU-btn
+{
+  background: none;
+  border: none;
+  font-style: italic;
+}
+
+.CGU-btn:hover
+{
+  color: #0085A1;
+}
+
 /*=============OnePost============*/
 
 #comment-label
@@ -555,3 +583,4 @@ footer .copyright {
   color: red;
   z-index: 150;
 }
+

@@ -10,23 +10,16 @@ class CommentsManagerPDO extends PDOManager
 	public function addComment(Comment $comment)
 	{
 		
-		$id=$this->maxId()==null ? 0 : $this->maxId()+1;
-
-		$req='INSERT INTO comment(id,user_id,post_id,content,date) VALUES(:id, :user_id, :post_id, :content, DATE(NOW()))';
+		$req='INSERT INTO comment(user_id,post_id,content,date) VALUES ( :user_id, :post_id, :content, DATE(NOW()))';
 		$required=$this->db->prepare($req);
 
-		$required->bindValue(':id',(int)$id,\PDO::PARAM_INT);
 		$required->bindValue(':user_id',$comment->userId(),\PDO::PARAM_INT);
 		$required->bindValue(':post_id',$comment->postId(),\PDO::PARAM_INT);
 		$required->bindValue(':content',$comment->content(),\PDO::PARAM_STR);
 		$required->execute();
 	}
 
-	public function maxId()
-	{
-		$max=$this->db->query("SELECT MAX(id) FROM comment")->fetch();
-		return $max[0];
-	}
+	
 
 	public function commentExist($postId)
 	{
@@ -54,5 +47,11 @@ class CommentsManagerPDO extends PDOManager
 		}
 
 		return $comments;
+	}
+
+	public function count($column,$value)
+	{
+		$req=$this->db->query('SELECT COUNT(*) FROM comment WHERE '.$column.' = "'.$value.'"')->fetch();
+		return $req[0];
 	}
 }

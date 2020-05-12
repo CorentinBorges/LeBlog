@@ -8,12 +8,14 @@ abstract class Application
 	protected 	$HTTPRequest,
 				$HTTPResponse,
 				$managers,
+				$admin,
 				$name;
 
 	public function __construct()
 	{
 		$this->HTTPRequest=new HTTPRequest($this);
 		$this->HTTPResponse= new HTTPResponse($this);
+		$this->admin=new Admin($this);
 		$this->name='';
 	}
 
@@ -36,6 +38,7 @@ abstract class Application
 			$router->addRoute(new Route($route['url'],$route['module'],$route['action'],$vars));
 			
 		}	
+		
 
 		try 
 			{
@@ -83,6 +86,11 @@ abstract class Application
 	public function httpResponse()
 	{
 		return $this->HTTPResponse;
+	}
+
+	public function admin()
+	{
+		return $this->admin;
 	}
 
 

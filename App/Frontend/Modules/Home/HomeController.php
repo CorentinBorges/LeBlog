@@ -12,6 +12,7 @@ class HomeController extends BackController
 	public function executeIndex(HTTPRequest $request, HTTPResponse $response)
 	{
 
+		
 		if($request->postExist('submit'))
 		{ 
 			$mail=new Mail(['name'=>$request->postData('name'),

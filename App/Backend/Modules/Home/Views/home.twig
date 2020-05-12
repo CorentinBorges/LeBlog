@@ -1,0 +1,9 @@
+{% extends 'App/Backend/Templates/layout.twig'%}
+{% block content%}
+	<div class="col-12 mt-3 text-center pl-md-5 pl-sm-2 col-sm-6 mx-auto">
+    	<h2>Configuration du blog</h2>
+    	<p>Nombre de commentaires non validés: {{countCom}}</p>
+    	<p>Nombre d'utilisateurs non validés: {{countLog}}</p> 
+    </div>
+
+{% endblock %}

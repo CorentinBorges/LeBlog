@@ -25,6 +25,7 @@ class FrontendApplication extends Application
 			$logController=new LogController($this,'connect','log');
 			$logController->execute();
 		}
+		
 		$controller=$this->getController();
 		if($this->user->isAuthenticated())
 		{

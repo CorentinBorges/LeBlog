@@ -13,7 +13,6 @@ class PostsController extends BackController
 	{
 		$manager=$this->managers->getManagerOf('Posts','PDO');
 		$list=$manager->getList();
-
 		$this->page->addVar('list',$list);
 		$response->send();
 	}

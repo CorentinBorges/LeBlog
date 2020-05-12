@@ -62,7 +62,7 @@ abstract class BackController extends AppComponent
 		{
 			throw new \InvalidArgumentException("La vue doit être une chaine de caractères valide");
 		}
-
+		
 		$this->app->httpResponse()->setPage($this->page);
 		$this->page->setContent('App/'.$this->app->name().'/Modules/'.$this->module.'/Views/'.$view.'.twig');
 	}
