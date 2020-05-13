@@ -1,0 +1,14 @@
+{
+    "require": {
+        "twig/twig": "^3.0"
+    },
+    "autoload": {
+        "psr-4":{
+            "Framework\\": "lib/Framework","App\\": "App","Models\\": "lib/Models","Entity\\": "lib/Entity"
+
+
+        }
+
+
+    }
+}

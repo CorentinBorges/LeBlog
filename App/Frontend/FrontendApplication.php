@@ -4,6 +4,7 @@ namespace App\Frontend;
 
 use Framework\Application;
 use Entity\User;
+
 use App\Frontend\Modules\Log\LogController;
 
 class FrontendApplication extends Application

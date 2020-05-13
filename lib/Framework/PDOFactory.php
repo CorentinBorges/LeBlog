@@ -6,7 +6,7 @@ class PDOFactory
 	public static function getPDO()
 	{
 
-		$json=file_get_contents(__DIR__.'/../vendors/Models/Config/db.JSON');
+		$json=file_get_contents(__DIR__.'/../Models/Config/db.JSON');
 		$parsedJson=json_decode($json,true);
 		foreach($parsedJson['PDOdb'] as $data)
 		{

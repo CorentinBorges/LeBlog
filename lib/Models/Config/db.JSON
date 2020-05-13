@@ -1,0 +1,11 @@
+{
+	"PDOdb": 
+	[
+		{
+			"hostname":"localhost",
+			"dbname":"blog",
+			"user":"root",
+			"password":"root"
+		}
+	]
+}
