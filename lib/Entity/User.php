@@ -2,10 +2,7 @@
 
 namespace Entity;
 
-if(session_status()==PHP_SESSION_NONE)
-{
 	session_start();
-}
 
 use Framework\Entity;
 
@@ -16,6 +13,7 @@ class User extends Entity
 				$pseudo,
 				$mail,
 				$password,
+                $roleId,
 				$valid;
 
 	const INVALID_NAME=1;
@@ -29,6 +27,10 @@ class User extends Entity
 		return isset($_SESSION['auth']) && $_SESSION['auth']===true;
 	}
 
+    public function isAdmin()
+    {
+        return isset($_SESSION['admin']) && $_SESSION['admin']===true;
+	}
 	public function validForm()
 	{
 		return empty($this->errors);
@@ -44,6 +46,9 @@ class User extends Entity
 		$_SESSION['auth']=true;
 		$_SESSION['id']=$this->id;
 		$_SESSION['pseudo']=$this->pseudo();
+        if ($this->roleId == 1) {
+            $_SESSION['admin'] = true;
+        }
 	}
 
 	public function disconnect()
@@ -76,7 +81,7 @@ class User extends Entity
 
 	public function setFirstName($firstName)
 	{
-		if(!is_string($firstName) || !ctype_alpha($firstName))
+		if(!is_string($firstName) || is_int($firstName))
 		{
 			$this->errors[]=self::INVALID_FIRST_NAME;
 		}
@@ -115,7 +120,7 @@ class User extends Entity
 	}
 
 	
-	public function setValid(bool $valid=false)
+	public function setValid(bool $valid)
 	{
 		$this->valid=$valid;
 	}
@@ -144,6 +149,20 @@ class User extends Entity
 	{
 		return $this->password;
 	}
+
+    public function RoleId()
+    {
+        return $this->roleId;
+    }
+
+    public function setRoleId($roleId)
+    {
+        $roleId=(int) $roleId;
+        $this->roleId = $roleId;
+        return $this;
+    }
+
+
 
 	public function errors()
 	{

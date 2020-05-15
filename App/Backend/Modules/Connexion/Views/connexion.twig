@@ -2,41 +2,11 @@
 
 
 {% block content %}
-	{% if error %}
 		<div class="alert alert-danger alert-dismissible fade show container col-10 col-lg-5 text-left" role="alert">
-	        <p>{{error}}</p>
+	        <p>Vous devez être connecter en tant qu'administrateur pour pouvoir modifier le site</p>
 	        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	            <span aria-hidden="true">&times;</span>
 	        </button>
-	    </div>  
-	{% endif %}
-	<div class="col-lg-6 pl-sm-5 col-md-10 mx-auto">
-		<h2 class="text-center">Connexion Admin</h2>
-		<form name="connexion" id="contactForm" method='post' action="">
-	        <div class="control-group">
-	            <div class="form-group floating-label-form-group controls">
-	                <label>Utilisateur</label>
-	                <input type="text" class="form-control" {% if loginAdmin %} value='{{loginAdmin}}' {% endif %} name='loginAdmin' placeholder="Utilisateur" id="loginAdmin" required data-validation-required-message="veuillez entrer un nom d'utilisateur"> 
-	                <p class="help-block text-danger"></p>
-	            </div>
-	        </div>
-	        <div class="control-group">
-	            <div class="form-group floating-label-form-group controls">
-	                <label>Mot de passe</label>
-	                <input type="password" class="form-control" name='passAdmin' {% if passAdmin %} value='{{passAdmin}}' {% endif %} placeholder="Mot de passe" id="passAdmin" required data-validation-required-message="Veuillez indiquer un mot de passe">
-	                <p class="help-block text-danger"></p>  
-	            </div>
-	        </div>
-	        <div class="form-check mt-4">
-	            <input type="checkbox" {{checked}} class="form-check-input mt-2"  name='cookie'  id="cookie" >
-	            <label for='cookie'  class="ml-2 form-check-label">Rester connecter</label>
-	            <p class="help-block text-danger"></p>
-	        </div>
-	        <div class="form-group col-5 mt-4 text-center col-md-12 mx-auto" >
-                <button type="submit" name='submitConnect' class="btn btn-primary" id="sendMessageButton">Envoyer</button>
-            </div>
-	    </form>
-	</div>
+	    </div>
 
-    
 {% endblock %}

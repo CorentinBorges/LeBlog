@@ -149,7 +149,9 @@
                     <button class="nav-link CGU-btn">Conditions générales d'utilisation </button>
                 </ul>
                 <div class='col-lg-3 mx-auto text-center mt-5'>
-                    <a href="admin" class='config-link'>Configurer le site</a>
+                    {% if admin is defined %}
+                        <a href="admin" class='config-link'>Configurer le site</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -159,7 +161,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>
     <script src="Web/js/bootstrap.bundle.min.js"></script>
     <script src="Web/js/clean-blog.js"></script>
-}
+
 
 </body>
 

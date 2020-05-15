@@ -8,14 +8,14 @@ abstract class Application
 	protected 	$HTTPRequest,
 				$HTTPResponse,
 				$managers,
-				$admin,
+				$user,
 				$name;
 
 	public function __construct()
 	{
 		$this->HTTPRequest=new HTTPRequest($this);
 		$this->HTTPResponse= new HTTPResponse($this);
-		$this->admin=new Admin($this);
+		$this->user=new User();
 		$this->name='';
 	}
 

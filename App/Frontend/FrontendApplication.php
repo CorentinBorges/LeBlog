@@ -33,7 +33,10 @@ class FrontendApplication extends Application
 			$controller->page()->addVar('connected','connected');
 			$controller->page()->addVar('pseudo',$_SESSION['pseudo']);
 		}
-
+        if($this->user->isAdmin())
+        {
+            $controller->page()->addVar('admin','admin');
+        }
 
 		
 		$controller->execute();

@@ -7,15 +7,16 @@ use Entity\Comment;
 
 class CommentsManagerPDO extends PDOManager
 {
-	public function addComment(Comment $comment)
+	public function addComment(Comment $comment,$admin=false)
 	{
 		
-		$req='INSERT INTO comment(user_id,post_id,content,date) VALUES ( :user_id, :post_id, :content, DATE(NOW()))';
+		$req='INSERT INTO comment(user_id,post_id,content,date,valid) VALUES ( :user_id, :post_id, :content, DATE(NOW()), :valid)';
 		$required=$this->db->prepare($req);
-
+        $valid= $admin===true ? 1 : 0;
 		$required->bindValue(':user_id',$comment->userId(),\PDO::PARAM_INT);
 		$required->bindValue(':post_id',$comment->postId(),\PDO::PARAM_INT);
 		$required->bindValue(':content',$comment->content(),\PDO::PARAM_STR);
+        $required->bindValue(':valid',$valid,\PDO::PARAM_INT);
 		$required->execute();
 	}
 

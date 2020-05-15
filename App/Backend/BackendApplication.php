@@ -17,7 +17,7 @@ class BackendApplication extends Application
 	{
 		
 
-		if ($this->admin->isValid() || (isset($_COOKIE['loginAdmin']) && isset($_COOKIE['passAdmin'])))
+		if ($this->user->isAdmin() || (isset($_COOKIE['loginAdmin']) && isset($_COOKIE['passAdmin'])))
 		{
 			$controller=$this->getController();
 		}
