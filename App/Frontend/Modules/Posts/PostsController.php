@@ -49,8 +49,16 @@ class PostsController extends BackController
 			}
 			else
 			{
-				$commentManager->addComment($comment);
-				$this->page->addVar('commentSent','commentSent');
+			    if($this->app->user()->isAdmin())
+                {
+                    $commentManager->addComment($comment,true);
+                }
+			    else
+                {
+                    $commentManager->addComment($comment);
+                    $this->page->addVar('commentSent','commentSent');
+                }
+
 			}
 
 		}

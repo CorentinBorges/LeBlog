@@ -9,7 +9,7 @@ class LogsManagerPDO extends PDOManager
 {
 	public function addLogs(User $user)
 	{
-		$req='INSERT INTO users(mail,password,name,first_name,pseudo) VALUES ( :mail, :password, :name, :first_name, :pseudo)';
+		$req='INSERT INTO users(mail,password,name,first_name,pseudo, role_id) VALUES ( :mail, :password, :name, :first_name, :pseudo, :role_id)';
 
 		
 		$password=password_hash($user->password(), PASSWORD_BCRYPT, array('cost'=>12));
@@ -18,8 +18,10 @@ class LogsManagerPDO extends PDOManager
 		$request->bindValue(':password',$password,\PDO::PARAM_STR);
 		$request->bindValue(':name',$user->name(),\PDO::PARAM_STR);
 		$request->bindValue(':first_name',$user->firstName(),\PDO::PARAM_STR);
-		$request->bindValue(':pseudo',$user->pseudo(),\PDO::PARAM_STR);
-		$request->execute();
+        $request->bindValue(':pseudo',$user->pseudo(),\PDO::PARAM_STR);
+        $request->bindValue(':role_id',2,\PDO::PARAM_INT);
+
+        $request->execute();
 
 	}
 
