@@ -1,4 +1,5 @@
-{% extends 'App/Frontend/Templates/layout.twig'%}
+{% extends 'App/Frontend/Templates/layout.html.twig'%}
+
 
 {% block jumbotron %}   
 
@@ -33,9 +34,7 @@
                 {{ post.chapo }}
               </h3>
             </a>
-            <p class="post-meta">Posted by
-              {{ post.author }}</a>
-              on {{ post.dateCreation}}</p>
+            <p class="post-meta">Ecrit par {{ post.author }} le {{ post.dateCreation}}</p>
           </div>
           <hr>
       {% endfor %}

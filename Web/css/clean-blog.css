@@ -246,7 +246,7 @@ header.masthead .site-heading h1 {
   margin-top: 0;
 }
 
-header.masthead .page-heading .subheading,
+heade.subheading,
 header.masthead .site-heading .subheading {
   font-size: 24px;
   font-weight: 300;
@@ -315,7 +315,7 @@ header.masthead .post-heading .meta a {
   margin-bottom: 10px;
 }
 
-.post-preview > a > .post-subtitle {
+.post-subtitle {
   font-weight: 300;
   margin: 0 0 10px;
 }
@@ -576,7 +576,6 @@ footer .copyright {
 }
 
 
-
 .confirm-cross
 {
 
@@ -584,3 +583,40 @@ footer .copyright {
   z-index: 150;
 }
 
+/*================Admin posts===============*/
+
+.del-post
+{
+  color: #c82333;
+}
+.del-post:hover
+{
+  color: #c82333;
+}
+
+.edit-post
+{
+  color: #005cbf;
+}
+
+.edit-post:hover
+{
+  color: #005cbf;
+}
+
+.add-post
+{
+  display: block;
+  transition: all 400ms ease-in-out;
+  color: #005cbf;
+  font-size: 25px;
+  font-weight: bold;
+
+}
+
+.add-post:hover
+{
+  transform-origin: center;
+  transform: scale(0.9);
+  color: #005cbf;
+}

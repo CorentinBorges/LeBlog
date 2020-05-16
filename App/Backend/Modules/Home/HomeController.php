@@ -9,11 +9,11 @@ class HomeController extends BackController
 {
 	public function executeHome(HTTPRequest $request, HTTPResponse $response)
 	{
-		$comManager=$this->managers->getManagerOf('comments','PDO');
+		$comManager=$this->managers->getManagerOf('comment','PDO');
 		$countCom=$comManager->count('valid',0);
 		$this->page->addVar('countCom',$countCom);
 
-		$logManager=$this->managers->getManagerOf('logs','PDO');
+		$logManager=$this->managers->getManagerOf('users','PDO');
 		$countLog=$logManager->count('valid',0);
 		$this->page->addVar('countLog',$countLog);
 		
