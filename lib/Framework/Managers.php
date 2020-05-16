@@ -27,6 +27,7 @@ Class Managers extends AppComponent
 			throw new \InvalidArgumentException("La classe appelée par Managers::addManager n'existe pas");
 		}
 		$class='Models\\'.$className;
-		$this->managers[$module]=new $class();
+
+		$this->managers[$module]=new $class(lcfirst($module));
 	}
 }

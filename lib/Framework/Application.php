@@ -7,7 +7,6 @@ abstract class Application
 {
 	protected 	$HTTPRequest,
 				$HTTPResponse,
-				$managers,
 				$user,
 				$name;
 
@@ -68,11 +67,7 @@ abstract class Application
 		$this->name=$name;
 	}
 	
-	public function managers()
-	{
-		return $this->managers;
-	}
-	
+
 	public function name()
 	{
 		return $this->name;

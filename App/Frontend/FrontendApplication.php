@@ -5,7 +5,7 @@ namespace App\Frontend;
 use Framework\Application;
 use Entity\User;
 
-use App\Frontend\Modules\Log\LogController;
+use App\Frontend\Modules\Users\UsersController;
 
 class FrontendApplication extends Application
 {
@@ -23,7 +23,7 @@ class FrontendApplication extends Application
 		
 		if(isset($_COOKIE['mail']) && isset($_COOKIE['pass']) && !$this->user->isAuthenticated())
 		{
-			$logController=new LogController($this,'connect','log');
+			$logController=new UsersController($this,'connect','Users');
 			$logController->execute();
 		}
 		

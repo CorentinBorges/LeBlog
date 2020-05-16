@@ -64,7 +64,7 @@ abstract class BackController extends AppComponent
 		}
 		
 		$this->app->httpResponse()->setPage($this->page);
-		$this->page->setContent('App/'.$this->app->name().'/Modules/'.$this->module.'/Views/'.$view.'.twig');
+		$this->page->setContent('App/'.$this->app->name().'/Modules/'.$this->module.'/Views/'.$view.'.html.twig');
 	}
 
 	public function page()

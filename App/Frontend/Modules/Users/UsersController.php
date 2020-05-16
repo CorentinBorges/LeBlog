@@ -1,12 +1,12 @@
 <?php
-namespace App\Frontend\Modules\Log;
+namespace App\Frontend\Modules\Users;
 
 use Framework\HTTPRequest;
 use Framework\HTTPResponse;
 use Framework\BackController;
 use Entity\User;
 
-class LogController extends BackController
+class UsersController extends BackController
 {
 	public function executeSignIn(HTTPRequest $request, HTTPResponse $response)
 	{
@@ -150,7 +150,7 @@ class LogController extends BackController
 	{
 		if($request->cookieExist('mail') && $request->cookieExist('pass'))
 		{
-			$logManager=$this->managers->getManagerOf('logs','PDO');
+			$logManager=$this->managers->getManagerOf('users','PDO');
 			$this->app->setUser($logManager->getOne($_COOKIE['mail']));
 		}
 		$this->app->user()->connect();

@@ -1,5 +1,5 @@
 <?php
-namespace App\Frontend\Modules\Posts;
+namespace App\Frontend\Modules\Post;
 
 use Framework\Application;
 use Framework\BackController;
@@ -7,11 +7,11 @@ use Framework\HTTPRequest;
 use Framework\HTTPResponse;
 use Entity\Comment;
 
-class PostsController extends BackController
+class PostController extends BackController
 {
 	public function executeIndex(HTTPRequest $request, HTTPResponse $response)
 	{
-		$manager=$this->managers->getManagerOf('Posts','PDO');
+		$manager=$this->managers->getManagerOf('Post','PDO');
 		$list=$manager->getList();
 		$this->page->addVar('list',$list);
 		$response->send();
@@ -19,7 +19,7 @@ class PostsController extends BackController
 
 	public function executeOnePost(HTTPRequest $request, HTTPResponse $response)
 	{
-		$postManager=$this->managers->getManagerOf('Posts','PDO');
+		$postManager=$this->managers->getManagerOf('Post','PDO');
 		$post=$postManager->getOne($request->getData('id'));
 		if(!$post)
 		{
@@ -27,12 +27,12 @@ class PostsController extends BackController
 		}
 
 
-		$commentManager=$this->managers->getManagerOf('comments','PDO');
+		$commentManager=$this->managers->getManagerOf('comment','PDO');
 
 		if($commentManager->commentExist($post->id()))
 		{
 			$comments=$commentManager->getComments($post->id());
-			$this->page->addVar('comments',$comments);	
+			$this->page->addVar('comments',$comments);
 		}
 		if($request->postExist('submitComment'))
 		{

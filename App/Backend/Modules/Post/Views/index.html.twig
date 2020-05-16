@@ -1,0 +1,41 @@
+{% extends 'App/Backend/Templates/layout.html.twig'%}
+
+
+{% block content%}
+    <div class="col-12 mt-3 text-center pl-md-5 pl-sm-2 col-sm-6 mx-auto">
+        <h2>Articles</h2>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto mt-3 mb-5">
+                <a href="add" class="add-post">
+                    <i  class="mr-2 fas fa-plus-circle fa-lg" ></i>
+                    Ajouter un article
+                </a>
+            </div>
+            <hr/>
+
+            <div class="col-lg-8 col-md-10 mx-auto">
+                {% for post in list %}
+                    <div class="post-preview">
+                        <h2 class="post-title">
+                            {{ post.title }}
+                        </h2>
+                        <h4 class="post-subtitle">
+                            {{ post.chapo }}
+                        </h4>
+                        <p class="post-meta">Ecrit par {{ post.author }} le {{ post.dateCreation}}</p>
+                        <div class="text-right">
+                            <a href="edit" class="mr-3 edit-post">Modifier</a>
+                            <a href="delete" class="del-post">Supprimer</a>
+                        </div>
+
+                    </div>
+                    <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

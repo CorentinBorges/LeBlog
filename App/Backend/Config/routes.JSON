@@ -2,20 +2,19 @@
 	"routes":
 	[
 		{
-			"url":"/blog/admin",
+			"url":"/blog/admin/home",
 			"module":"Home",
 			"action":"home"
-		},
-		{
-			"url":"/blog/admin-(disconnect)",
-			"module":"Connexion",
-			"action":"connexion",
-			"vars":"disconnect"
 		},
 		{
 			"url":"/blog/admin/connect",
 			"module":"Connexion",
 			"action":"connexion"
+		},
+		{
+			"url":"/blog/admin/posts",
+			"module":"Post",
+			"action":"index"
 		}
 	]
 	
