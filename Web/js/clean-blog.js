@@ -61,3 +61,8 @@ $('.CGU-btn').click(function(event) {
     $('.CGU').show();  
 });
 
+$('#top-btn').click(function () {
+
+        $(document).scrollTop( $("#top").offset().top-100 );
+})
+
