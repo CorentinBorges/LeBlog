@@ -434,7 +434,7 @@ footer .copyright {
     margin-top: -30px;
   }
 
-  #arrow-link
+  .arrow-link
     {
         position: fixed;
         bottom: 3%;
@@ -587,7 +587,9 @@ footer .copyright {
 
 .del-post
 {
-  color: #c82333;
+  color: #f7332d;
+  background: none;
+  border: none;
 }
 .del-post:hover
 {
@@ -607,7 +609,7 @@ footer .copyright {
 .add-post
 {
   display: block;
-  transition: all 400ms ease-in-out;
+  transition: all 200ms ease-in-out;
   color: #005cbf;
   font-size: 25px;
   font-weight: bold;
@@ -617,6 +619,13 @@ footer .copyright {
 .add-post:hover
 {
   transform-origin: center;
-  transform: scale(0.9);
+  transform: scale(1.05);
   color: #005cbf;
+}
+
+/*==========add Post=========*/
+
+#title , #chapo
+{
+  resize: none;
 }

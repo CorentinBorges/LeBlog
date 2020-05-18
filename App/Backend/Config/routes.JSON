@@ -15,6 +15,16 @@
 			"url":"/blog/admin/posts",
 			"module":"Post",
 			"action":"index"
+		},
+		{
+			"url":"/blog/admin/addPost",
+			"module":"Post",
+			"action":"addPost"
+		},
+		{
+			"url":"/blog/admin/del-post",
+			"module":"Post",
+			"action":"delPost"
 		}
 	]
 	

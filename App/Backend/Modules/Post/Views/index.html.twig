@@ -2,6 +2,7 @@
 
 
 {% block content%}
+
     <div class="col-12 mt-3 text-center pl-md-5 pl-sm-2 col-sm-6 mx-auto">
         <h2>Articles</h2>
     </div>
@@ -9,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto mt-3 mb-5">
-                <a href="add" class="add-post">
+                <a href="/blog/admin/addPost" class="add-post">
                     <i  class="mr-2 fas fa-plus-circle fa-lg" ></i>
                     Ajouter un article
                 </a>
@@ -18,6 +19,7 @@
 
             <div class="col-lg-8 col-md-10 mx-auto">
                 {% for post in list %}
+
                     <div class="post-preview">
                         <h2 class="post-title">
                             {{ post.title }}
@@ -28,8 +30,29 @@
                         <p class="post-meta">Ecrit par {{ post.author }} le {{ post.dateCreation}}</p>
                         <div class="text-right">
                             <a href="edit" class="mr-3 edit-post">Modifier</a>
-                            <a href="delete" class="del-post">Supprimer</a>
+                            <button type="button" data-toggle="modal" data-target="{{ '#del-' ~ post.id }}" class="del-post">Supprimer</button>
                         </div>
+                        <form method="post" action="/blog/admin/del-post">
+                            <div class="modal fade" id="{{ 'del-' ~ post.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Article: {{ post.title }}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Êtes vous sûre de vouloir supprimer cet article?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" name="edit" value="{{ 'edit-' ~ post.id }}" class="btn btn-success" data-dismiss="modal">Non</button>
+                                            <button value="{{ 'del-' ~ post.id }}" name="delete" type="submit" class=" btn btn-danger del-btn">Oui</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
 
                     </div>
                     <hr>

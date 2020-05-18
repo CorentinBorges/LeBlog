@@ -1,0 +1,43 @@
+{% extends 'App/Backend/Templates/layout.html.twig'%}
+
+
+{% block content%}
+    <div class="col-12 mt-3 text-center pl-md-5 pl-sm-2 col-sm-6 mx-auto">
+        <h2>Nouvel article</h2>
+    </div>
+    {% if  errors %}
+        <div class="alert alert-danger alert-dismissible fade show container col-10 col-lg-5 text-left" role="alert">
+            {% for error in errors %}
+                <ul>
+                    <li> {{error}} </li>
+                </ul>
+            {% endfor %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto mt-3">
+                <form method="post" action="/blog/admin/addPost">
+                    <div class="form-group">
+                        <label for="title">Titre</label>
+                        <textarea class="form-control" rows="1" {% if title %} value="{{ title }}" {% endif %} maxlength="150" id="title" type="textarea" name="title" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="chapo">Chapô</label>
+                        <textarea class="form-control" rows="01" {% if chapo %} value="{{ chapo }}" {% endif %} maxlength="150" id="chapo" name="chapo" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Article</label>
+                        <textarea class="form-control" rows="9" {% if content %} value="{{ content }}" {% endif %} maxlength="30000" id="content" name="content" required></textarea>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" name="submitPost" class="btn btn-primary" value="Poster"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

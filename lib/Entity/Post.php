@@ -54,7 +54,7 @@ Class Post extends Entity
 	{
 		if (!is_string($content))
 		{
-			$this->erreurs[]=self::INVALID_CHAPO;
+			$this->erreurs[]=self::INVALID_CONTENT;
 		}
 
 		$this->content=$content;
