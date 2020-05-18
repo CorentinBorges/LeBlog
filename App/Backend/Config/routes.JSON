@@ -25,7 +25,14 @@
 			"url":"/blog/admin/del-post",
 			"module":"Post",
 			"action":"delPost"
+		},
+		{
+			"url":"/blog/admin/editPost-([0-9]+)",
+			"module":"Post",
+			"action":"editPost",
+			"vars": "postId"
 		}
+
 	]
 	
 }

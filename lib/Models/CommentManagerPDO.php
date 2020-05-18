@@ -14,7 +14,12 @@ class CommentManagerPDO extends PDOManager
         $req = $this->createQuery($query,[$comment->userId(),$comment->postId(),$comment->content(),$valid]);
 	}
 
-	
+    public function countNoValid()
+    {
+        $query = 'SELECT COUNT(*) FROM comment WHERE valid = 0';
+        $req=$this->db->query($query)->fetch();
+        return $req[0];
+    }
 
 	public function commentExist($postId)
 	{

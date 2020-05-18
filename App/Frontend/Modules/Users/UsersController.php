@@ -117,7 +117,7 @@ class UsersController extends BackController
 				$this->page->addVar('checked','checked');
 			}
 
-			$logManager=$this->managers->getManagerOf('logs','PDO');
+			$logManager=$this->managers->getManagerOf('users','PDO');
 			
 
 			if($logManager->exist('mail',$mail) && password_verify($pass, $logManager->getPass($mail)))

@@ -4,8 +4,7 @@ namespace Framework;
 
 class PDOManager
 {
-	protected   $db,
-                $table;
+	protected   $db;
 
 	public function __construct($model)
 	{
@@ -26,10 +25,5 @@ class PDOManager
         }
 	}
 
-    public function count($column,$value)
-    {
-        $query = 'SELECT COUNT(*) FROM '.$this->table.' WHERE '.$column.' = '.$value;
-        $req=$this->db->query($query)->fetch();
-        return $req[0];
-	}
+
 }

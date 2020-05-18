@@ -34,7 +34,7 @@
                 {{ post.chapo }}
               </h3>
             </a>
-            <p class="post-meta">Ecrit par {{ post.author }} le {{ post.dateCreation}}</p>
+            <p class="post-meta">Ecrit par {{ post.author }} le {{ post.dateCreation}} {% if post.dateModif is defined %} Modifié le {{ post.dateModif }} {% endif %}</p>
           </div>
           <hr>
       {% endfor %}

@@ -33,11 +33,6 @@ class Router
 		throw new \RuntimeException("La page demandée n'existe pas", self::NO_ROUTE);
 	}
 
-	public function routes()
-	{
-		var_dump($this->routes);
-	}
-
 	public function addRoute(Route $route)
 	{
 		$this->routes[$route->url()]=$route;
