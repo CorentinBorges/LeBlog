@@ -40,14 +40,28 @@ class PostManagerPDO extends PDOManager
 
     public function add(Post $post)
     {
-        $req = 'INSERT INTO ' . $this->table . '(title,chapo,content,date_creation,author) VALUES(?,?,?,DATE(NOW()),?)';
+        $req = 'INSERT INTO post(title,chapo,content,date_creation,author) VALUES(?,?,?,DATE(NOW()),?)';
         $this->createQuery($req, [$post->title(), $post->chapo(), $post->content(), $_SESSION['pseudo'],
         ]);
 	}
 
     public function del($id)
     {
-        $req = 'DELETE FROM ' . $this->table . ' WHERE id =?';
+        $req = 'DELETE FROM post WHERE id =?';
         $this->createQuery($req,[$id]);
+	}
+
+    public function exist($id)
+    {
+        $req = "SELECT COUNT(*) FROM post WHERE id =".$id;
+        $count=$this->createQuery($req)->fetch();
+        return $count[0] == 0 ? false : true;
+	}
+
+    public function edit(Post $post)
+    {
+        $id = (int)$post->id();
+        $req = "UPDATE post SET title= ?, chapo= ?, content= ?, date_modif= DATE(NOW()) WHERE id= ?";
+        $this->createQuery($req, [$post->title(), $post->chapo(), $post->content(),$id]);
 	}
 }

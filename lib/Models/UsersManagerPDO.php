@@ -33,6 +33,13 @@ class UsersManagerPDO extends PDOManager
 		return new User($user);
 	}
 
+    public function countNoValid()
+    {
+        $query = 'SELECT COUNT(*) FROM comment WHERE valid = 0';
+        $req=$this->db->query($query)->fetch();
+        return $req[0];
+    }
+
 	public function getPass($mail)
 	{
 		$req=$this->db->prepare('SELECT password FROM users WHERE mail= :mail');

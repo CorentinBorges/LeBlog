@@ -27,9 +27,9 @@
                         <h4 class="post-subtitle">
                             {{ post.chapo }}
                         </h4>
-                        <p class="post-meta">Ecrit par {{ post.author }} le {{ post.dateCreation}}</p>
+                        <p class="post-meta">Ecrit par {{ post.author }} le {{ post.dateCreation}} {% if post.dateModif is not empty %} Modifié le {{ post.dateModif }} {% endif %} </p>
                         <div class="text-right">
-                            <a href="edit" class="mr-3 edit-post">Modifier</a>
+                            <a href="admin/editPost-{{ post.id }}" class="mr-3 edit-post">Modifier</a>
                             <button type="button" data-toggle="modal" data-target="{{ '#del-' ~ post.id }}" class="del-post">Supprimer</button>
                         </div>
                         <form method="post" action="/blog/admin/del-post">
